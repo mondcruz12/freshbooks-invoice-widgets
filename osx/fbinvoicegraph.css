@@ -1,0 +1,28 @@
+
+#front 	{ background:url(images/front.png) no-repeat; width: 211px; height: 63px; padding-top: 13px; padding-left: 11px;}
+#back 	{ display: none; background: #ccc; -webkit-border-radius:5px; padding: 6px 10px; border: 2px solid white;}
+
+#back input		{display:block; width: 135px;}
+#graph { background;white; position: absolute; top: -5px; left:-5px;}
+body { font-size: 11px; margin: 0; font-family: verdana, sans-serif; }
+.ok, .good, .bad { font-weight: bold;}
+.good { color: #009900;}
+.bad { color: #990000;}
+table { width: 195px; background:white;}
+#o { position: relative; width: 50px; height: 30px;overflow:hidden;}
+
+#infoButton {
+
+    position:absolute;
+
+    bottom:20px;
+
+    right:20px;
+
+}
+
+#doneButton {    position:absolute;    bottom:20px;
+
+    right:10px;
+
+}

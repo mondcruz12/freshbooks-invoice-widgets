@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style type="text/css" title="AppleStyle">
+        @import "fbinvoicegraph.css";
+    </style>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleAnimator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleInfoButton.js" charset="utf-8"></script>
+    <script type="text/javascript" src="Freshbooks2.1.js" charset="utf-8"></script>
+    <script type="text/javascript" src="localizedStrings.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="jquery.sparkline.js" charset="utf-8"></script>
+      <!--[if IE]><script language="javascript" type="text/javascript" src="../excanvas.pack.js"></script><![endif]-->
+    <script type="text/javascript" src="jquery.flot.js" charset="utf-8"></script>
+    <script type="text/javascript" src="fbinvoicegraph.js" charset="utf-8"></script>
+
+	<style type="text/css" title="AppleStyle">@import "fbinvoicegraph.css";</style>
+</head>
+<body>
+    <div id="front">
+       	<div id="data">
+	
+			<table>
+				<tbody><tr>
+					<td rowspan="2">
+						<div id="o"><div id="graph" style="width: 60px; height:40px;"></div></div>
+					</td>
+					<td>Last Month: <span id="lastMonth"></span></td>
+				</tr>
+				<tr>
+					<td>This Month: <span id="thisMonth"></span></td>
+
+			</tr></tbody></table>
+	
+			
+		</div>
+		<div id='infoButton'></div>
+    </div>
+	<!-- =============================================== -->
+    <div id="back">
+		<input name="url" id="url" onfocus="fbi.clear(this, 'url');" onblur="fbi.restore(this);" value="url" />
+		<input name="api" id="api" onfocus="fbi.clear(this, 'api token');" onblur="fbi.restore(this);" value="api token" />
+		<div id="doneButton"></div>
+    </div>
+</body>
+</html>
