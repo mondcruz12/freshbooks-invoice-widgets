@@ -105,18 +105,22 @@ var fbi = {
 
 			for(var i = 0; i < 12; i++) {
 				
-				month++;
-				
 				if(month == 13)
 					month = 1;
 
 				jQuery.each(returnValue.list, function(v){ 
-					var d = returnValue.list[v].date.split('-')[1] * 1;
+					var d = returnValue.list[v].date.split('-')[1];
+					
+					var formattedMonth = month + '';
+					
+					if((formattedMonth).length === 1) formattedMonth = ('0' + formattedMonth); 
 			
-					if(d === month + 1) {	
+					if(d === formattedMonth) {	
 						results[i] += parseFloat(returnValue.list[v].amount);
 					}
 				});
+				
+				month++;
 			}
 
 			fbi.displayGraph(results);
@@ -136,25 +140,27 @@ var fbi = {
 		var oneYearAgo = now;
 		oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 		oneYearAgo.setMonth(oneYearAgo.getMonth() + 1);
-		var month = oneYearAgo.getMonth();
+		var month = (oneYearAgo.getMonth() + 1).toString();
+		month = month.length == 1 ? '0' + month : month;
 
 		for(var i = 0; i < 12; i++) {
-			
-			month++;
-			
-			if(month == 13)
+
+			if(month === 13)
 				month = 1;
 				
-			var val = data[i];
+			var val = data[month - 1];
+			
 			var t = 200;
 			if(val <= lowThresh)
-				low.push([month, val < t ? t : val]);
+				low.push([i, val < t ? t : val]);
 			else if(val >= highThresh)
-				high.push([month, val < t ? t : val]);
+				high.push([i, val < t ? t : val]);
 			else
-				med.push([month, val < t ? t : val]);
+				med.push([i, val < t ? t : val]);
 				
-			all[month] = val;
+			all[i] = val;
+			
+			month++;
 		}
 			
 		var d = $.plot($("#graph"), [
